@@ -6,6 +6,12 @@ body {
   padding-inline: 1rem;
 }
 
+.content {
+  max-width: 100ch; 
+  margin-inline: max(1em, (100% - 100ch) / 2); 
+  padding-inline: 1rem;
+}
+
 /* Navigation bar */
 nav {
   display: flex;
@@ -55,14 +61,76 @@ img {
   height: auto;
 }
 
-/* Center and style the paragraph */
-p {
-  text-align: center;
-  padding: 1rem;
-}
+
 
 :root {
   --color-accent: oklch(65% 0.3 300);  /* a rich purple shade */
   accent-color: var(--color-accent);   /* makes forms use this too */
 }
+
+input, textarea, button {
+  font: inherit;
+}
+
+form div {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5em;
+  margin-bottom: 1em;
+}
+
+form {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1em;
+  align-items: center;
+}
+
+/* Make labels span full row for clarity (optional) */
+label {
+  display: contents;
+}
+
+/* Inputs and textarea stretch to full width */
+input,
+textarea,
+button {
+  width: 100%;
+  box-sizing: border-box;
+  font: inherit;
+}
+
+/* Submit button spans full width */
+button {
+  grid-column: 1 / -1;
+}
+
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
+  gap: 1.5em;
+  align-items: start;
+  margin-top: 2rem;
+}
+
+.projects > article {
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-row: span 3;
+  gap: calc(20px + 10%);
+  padding: 1em;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.projects h2 {
+  margin: 0;
+}
+
+
+
+
+
+
 
