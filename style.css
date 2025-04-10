@@ -32,6 +32,15 @@ nav a.current {
   padding-bottom: 0.1em; /* Slight padding to reduce visual jump */
 }
 
+nav a:hover {
+  background-color: oklch(from var(--color-accent) 95% 5% h);
+  border-bottom-width: 0.4em;
+  border-bottom-style: solid;
+  border-bottom-color: var(--color-accent);
+  padding-bottom: 0.1em;
+}
+
+
 
 /* Centered headings */
 h1 {
@@ -51,3 +60,9 @@ p {
   text-align: center;
   padding: 1rem;
 }
+
+:root {
+  --color-accent: oklch(65% 0.3 300);  /* a rich purple shade */
+  accent-color: var(--color-accent);   /* makes forms use this too */
+}
+
