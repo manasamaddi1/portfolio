@@ -1,4 +1,3 @@
-/* General layout */
 body {
   font: 100%/1.5 system-ui;
   max-width: 100ch;
@@ -12,7 +11,6 @@ body {
   padding-inline: 1rem;
 }
 
-/* Navigation bar */
 nav {
   display: flex;
   justify-content: space-around;
@@ -30,12 +28,11 @@ nav a {
   flex: 1;
 }
 
-/* Style the current (active) page */
 nav a.current {
   border-bottom-width: 0.4em;
   border-bottom-style: solid;
   border-bottom-color: var(--color-accent);
-  padding-bottom: 0.1em; /* Slight padding to reduce visual jump */
+  padding-bottom: 0.1em; 
 }
 
 nav a:hover {
@@ -48,12 +45,10 @@ nav a:hover {
 
 
 
-/* Centered headings */
 h1 {
   text-align: center;
 }
 
-/* Center and resize image */
 img {
   display: block;
   margin: 0 auto;
@@ -64,8 +59,8 @@ img {
 
 
 :root {
-  --color-accent: oklch(65% 0.3 300);  /* a rich purple shade */
-  accent-color: var(--color-accent);   /* makes forms use this too */
+  --color-accent: oklch(65% 0.3 300);  
+  accent-color: var(--color-accent);  
 }
 
 input, textarea, button {
@@ -86,12 +81,10 @@ form {
   align-items: center;
 }
 
-/* Make labels span full row for clarity (optional) */
 label {
   display: contents;
 }
 
-/* Inputs and textarea stretch to full width */
 input,
 textarea,
 button {
@@ -100,7 +93,6 @@ button {
   font: inherit;
 }
 
-/* Submit button spans full width */
 button {
   grid-column: 1 / -1;
 }
@@ -127,6 +119,92 @@ button {
 .projects h2 {
   margin: 0;
 }
+
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.1;
+  text-wrap: balance;
+  margin-block: 0.5em;
+}
+
+h1 {
+  font-size: 400%;
+}
+
+.projects h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+
+body {
+  font: 100%/1.5 system-ui;
+  max-width: 100ch;
+  margin-inline: max(1em, (100% - 100ch) / 2);
+  padding-inline: 1rem;
+  background-color: #fff;
+  color: #111;
+}
+
+h1 {
+  font-size: 3.5rem;
+  text-align: center;
+  margin-block: 1rem;
+}
+
+h2 {
+  font-size: 1.75rem;
+  margin-top: 2rem;
+  color: var(--color-accent, rebeccapurple);
+  border-bottom: 2px solid #eee;
+  padding-bottom: 0.3em;
+}
+
+section {
+  margin-bottom: 2rem;
+}
+
+article {
+  margin-top: 1rem;
+  padding-left: 1rem;
+  border-left: 3px solid #d1d1d1;
+}
+
+article header {
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-bottom: 0.3em;
+}
+
+article p {
+  margin: 0.25em 0;
+}
+
+ul {
+  padding-left: 1.25rem;
+  margin-block: 0.5rem 1.5rem;
+}
+
+ul li {
+  margin-bottom: 0.4rem;
+  line-height: 1.4;
+}
+
+article a {
+  color: var(--color-accent, rgb(66, 9, 123));
+  text-decoration: none;
+  font-weight: 500;
+}
+
+article a:hover {
+  text-decoration: underline;
+}
+
+:root {
+  --color-accent: rebeccapurple;
+}
+
+
 
 
 
