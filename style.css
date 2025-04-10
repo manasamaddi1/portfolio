@@ -5,25 +5,28 @@ body {
   padding-inline: 1rem;
 }
 
-nav ul,
-nav li {
-  display: contents;
-}
-
 nav {
   display: flex;
-  gap: 1rem;
   justify-content: center;
-  margin-bottom: 2rem;
+  gap: 1.5em;
+  padding: 0.5em;
+  margin-bottom: 1em;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: oklch(80% 3% 200); 
 }
 
 nav a {
   text-decoration: none;
-  color: #5e2b97;
-  font-weight: bold;
-  padding: 0.5rem;
+  color: inherit;
+  text-align: center;
+  padding: 0.5em 0;
 }
 
 nav a.current {
-  color: black;
+  border-bottom-width: 0.4em;
+  border-bottom-style: solid;
+  border-bottom-color: oklch(80% 3% 200);
+  padding-bottom: 0.1em;
+  font-weight: bold;
 }
