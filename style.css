@@ -1,3 +1,4 @@
+/* General layout */
 body {
   font: 100%/1.5 system-ui;
   max-width: 100ch;
@@ -5,28 +6,48 @@ body {
   padding-inline: 1rem;
 }
 
+/* Navigation bar */
 nav {
   display: flex;
-  justify-content: center;
-  gap: 1.5em;
+  justify-content: space-around;
   padding: 0.5em;
-  margin-bottom: 1em;
+  text-align: center;
   border-bottom-width: 1px;
   border-bottom-style: solid;
-  border-bottom-color: oklch(80% 3% 200); 
+  border-bottom-color: oklch(80% 3% 200);
 }
 
 nav a {
   text-decoration: none;
   color: inherit;
-  text-align: center;
-  padding: 0.5em 0;
+  padding: 0.5em;
+  flex: 1;
 }
 
+/* Style the current (active) page */
 nav a.current {
   border-bottom-width: 0.4em;
   border-bottom-style: solid;
-  border-bottom-color: oklch(80% 3% 200);
-  padding-bottom: 0.1em;
-  font-weight: bold;
+  border-bottom-color: oklch(80% 3% 200); /* Cool gray */
+  padding-bottom: 0.1em; /* Slight padding to reduce visual jump */
+}
+
+
+/* Centered headings */
+h1 {
+  text-align: center;
+}
+
+/* Center and resize image */
+img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Center and style the paragraph */
+p {
+  text-align: center;
+  padding: 1rem;
 }
