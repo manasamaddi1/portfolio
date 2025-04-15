@@ -1,5 +1,12 @@
 html {
   color-scheme: light dark;
+  background-color: Canvas;
+  color: CanvasText;
+}
+
+
+html {
+  color-scheme: light dark;
 }
 
 
@@ -8,7 +15,13 @@ body {
   max-width: 100ch;
   margin-inline: max(1em, (100% - 100ch) / 2);
   padding-inline: 1rem;
-}
+  background-color: Canvas;
+  color: CanvasText;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  }
+
 
 .content {
   max-width: 100ch; 
@@ -18,15 +31,15 @@ body {
 
 nav {
   display: flex;
-  justify-content: space-around;
-  padding: 0.5em;
-  text-align: center;
-  border-bottom-width: 1px;
-  border-bottom-style: solid;
-  border-bottom-color: var(--border-color);
+  justify-content: center;
+  gap: 1rem;
+  border-bottom: 1px solid var(--border-color);
+  padding: 0.5rem;
+  background-color: Canvas;
+  color: CanvasText;
   --border-color: oklch(50% 10% 200 / 40%);
-  background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
 }
+
 
 nav a {
   text-decoration: none;
@@ -40,14 +53,16 @@ nav a.current {
   border-bottom-style: solid;
   border-bottom-color: var(--color-accent);
   padding-bottom: 0.1em; 
+  background-color: color-mix(in oklch, var(--color-accent), Canvas 85%);
 }
 
 nav a:hover {
-  background-color: oklch(from var(--color-accent) 95% 5% h);
+  background-color: color-mix(in oklch, var(--color-accent), Canvas 85%);
   border-bottom-width: 0.4em;
   border-bottom-style: solid;
   border-bottom-color: var(--color-accent);
   padding-bottom: 0.1em;
+  
 }
 
 
@@ -218,6 +233,12 @@ article a:hover {
   right: 1rem;
   font-size: 80%;
   font-family: inherit;
+}
+
+img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
 }
 
 
