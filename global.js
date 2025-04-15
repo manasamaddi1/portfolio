@@ -12,6 +12,7 @@ document.body.insertAdjacentHTML(
   `
 );
 
+
 let select = document.querySelector('select');
 
 select.addEventListener('input', function (event) {
@@ -87,5 +88,24 @@ select.addEventListener('input', function (event) {
   document.documentElement.style.setProperty('color-scheme', value);
   localStorage.colorScheme = value;
 });
+
+
+const form = document.querySelector('form');
+
+form?.addEventListener('submit', e => {
+  e.preventDefault(); // prevent default form submission
+
+  const data = new FormData(form);
+  let params = [];
+
+  for (let [name, value] of data) {
+    params.push(`${name}=${encodeURIComponent(value)}`);
+  }
+
+  const url = `${form.action}?${params.join('&')}`;
+  location.href = url; // open the email client
+});
+
+{/* <script type="module" src="../global.js"></script> */}
 
 }

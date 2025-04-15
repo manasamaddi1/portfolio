@@ -1,7 +1,7 @@
 html {
   color-scheme: light dark;
-  background-color: Canvas;
-  color: CanvasText;
+  /* background-color: Canvas;
+  color: CanvasText; */
 }
 
 
@@ -234,6 +234,7 @@ article a:hover {
   font-size: 80%;
   font-family: inherit;
 }
+
 
 img {
   display: block;
