@@ -1,3 +1,8 @@
+html {
+  color-scheme: light dark;
+}
+
+
 body {
   font: 100%/1.5 system-ui;
   max-width: 100ch;
@@ -18,7 +23,9 @@ nav {
   text-align: center;
   border-bottom-width: 1px;
   border-bottom-style: solid;
-  border-bottom-color: oklch(80% 3% 200);
+  border-bottom-color: var(--border-color);
+  --border-color: oklch(50% 10% 200 / 40%);
+  background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
 }
 
 nav a {
@@ -203,6 +210,16 @@ article a:hover {
 :root {
   --color-accent: rebeccapurple;
 }
+
+
+.color-scheme {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 80%;
+  font-family: inherit;
+}
+
 
 
 
