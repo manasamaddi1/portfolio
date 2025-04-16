@@ -13,11 +13,32 @@ document.body.insertAdjacentHTML(
 );
 
 
-let select = document.querySelector('select');
+// let select = document.querySelector('select');
 
-select.addEventListener('input', function (event) {
-  console.log('color scheme changed to', event.target.value);
-  document.documentElement.style.setProperty('color-scheme', event.target.value);
+// select.addEventListener('input', function (event) {
+//   console.log('color scheme changed to', event.target.value);
+//   document.documentElement.style.setProperty('color-scheme', event.target.value);
+// });
+
+
+// Theme switcher functionality
+let select = document.querySelector('.color-scheme select');
+
+// Function to set color scheme
+function setColorScheme(colorScheme) {
+  document.documentElement.style.setProperty('color-scheme', colorScheme);
+  select.value = colorScheme;
+  localStorage.colorScheme = colorScheme;
+}
+
+// Load saved preference
+if ("colorScheme" in localStorage) {
+  setColorScheme(localStorage.colorScheme);
+}
+
+// Handle theme changes
+select.addEventListener('input', function(event) {
+  setColorScheme(event.target.value);
 });
 
 
@@ -76,18 +97,18 @@ for (let p of pages) {
 
   let select = document.querySelector('select');
 
-// Load saved preference (if exists)
-if (localStorage.colorScheme) {
-  document.documentElement.style.setProperty('color-scheme', localStorage.colorScheme);
-  select.value = localStorage.colorScheme;
-}
+// // Load saved preference (if exists)
+// if (localStorage.colorScheme) {
+//   document.documentElement.style.setProperty('color-scheme', localStorage.colorScheme);
+//   select.value = localStorage.colorScheme;
+// }
 
-// Save new preference when changed
-select.addEventListener('input', function (event) {
-  let value = event.target.value;
-  document.documentElement.style.setProperty('color-scheme', value);
-  localStorage.colorScheme = value;
-});
+// // Save new preference when changed
+// select.addEventListener('input', function (event) {
+//   let value = event.target.value;
+//   document.documentElement.style.setProperty('color-scheme', value);
+//   localStorage.colorScheme = value;
+// });
 
 
 const form = document.querySelector('form');
