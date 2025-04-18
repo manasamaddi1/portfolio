@@ -73,15 +73,15 @@ for (let p of pages) {
 }
 
 // --- Contact form handling ---
-// const form = document.querySelector('#contact-form');
+const form = document.querySelector('#contact-form');
 
-// form?.addEventListener('submit', e => {
-//   e.preventDefault();
+form?.addEventListener('submit', e => {
+  e.preventDefault();
 
-//   const subject = encodeURIComponent(form.subject.value);
-//   const body = encodeURIComponent(form.message.value);
+  const subject = encodeURIComponent(form.subject.value);
+  const body = encodeURIComponent(form.message.value);
 
-//   const mailto = `mailto:lmaddi@ucsd.edu?subject=${subject}&body=${body}`;
-//   window.location.href = mailto;
-// });
+  const mailto = `mailto:lmaddi@ucsd.edu?subject=${subject}&body=${body}`;
+  window.location.href = mailto;
+});
 
