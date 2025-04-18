@@ -1,3 +1,4 @@
+// --- Theme switcher dropdown ---
 document.body.insertAdjacentHTML(
   'afterbegin',
   `
@@ -12,43 +13,28 @@ document.body.insertAdjacentHTML(
   `
 );
 
-
-// let select = document.querySelector('select');
-
-// select.addEventListener('input', function (event) {
-//   console.log('color scheme changed to', event.target.value);
-//   document.documentElement.style.setProperty('color-scheme', event.target.value);
-// });
-
-
-// Theme switcher functionality
 let select = document.querySelector('.color-scheme select');
 
-// Function to set color scheme
+// Function to set color scheme and save preference
 function setColorScheme(colorScheme) {
   document.documentElement.style.setProperty('color-scheme', colorScheme);
   select.value = colorScheme;
   localStorage.colorScheme = colorScheme;
 }
 
-// Load saved preference
+// Load saved theme preference on page load
 if ("colorScheme" in localStorage) {
   setColorScheme(localStorage.colorScheme);
 }
 
-// Handle theme changes
+// Change theme when dropdown is used
 select.addEventListener('input', function(event) {
   setColorScheme(event.target.value);
 });
 
 
-
-
-
-console.log("IT'S ALIVE!");
-
-// Define the pages and their URLs
-let pages = [
+// --- Navigation bar ---
+const pages = [
   { url: '', title: 'Home' },
   { url: 'projects', title: 'Projects' },
   { url: 'cv', title: 'CV' },
@@ -56,77 +42,49 @@ let pages = [
   { url: 'https://github.com/manasamaddi1', title: 'GitHub' }
 ];
 
-// Create and add the nav element to the top of the body
-let nav = document.createElement('nav');
+const BASE_PATH = (location.hostname === "localhost" || location.hostname === "127.0.0.1")
+  ? "/"
+  : "/portfolio/"; // replace with your GitHub repo name if different
+
+const nav = document.createElement('nav');
 document.body.prepend(nav);
 
-// Determine the base path depending on whether we are local or on GitHub Pages
-const BASE_PATH =
-  (location.hostname === "localhost" || location.hostname === "127.0.0.1")
-    ? "/"
-    : "/portfolio/"; // Change to your GitHub repo name if it's not "portfolio"
-
-// Loop through pages and create navigation links
 for (let p of pages) {
   let url = p.url;
   let title = p.title;
 
-  // Add BASE_PATH if it's a relative URL
   if (!url.startsWith('http')) {
     url = BASE_PATH + url;
   }
 
-  // Create the link element
-  let a = document.createElement('a');
+  const a = document.createElement('a');
   a.href = url;
   a.textContent = title;
 
-  // Highlight the current page
   if (a.host === location.host && a.pathname === location.pathname) {
     a.classList.add('current');
   }
 
-  // Open external links (like GitHub) in a new tab
   if (a.host !== location.host) {
     a.target = "_blank";
   }
 
-  // Add the link to the nav
-  nav.append(a);
+  nav.appendChild(a);
+}
 
-
-  let select = document.querySelector('select');
-
-// // Load saved preference (if exists)
-// if (localStorage.colorScheme) {
-//   document.documentElement.style.setProperty('color-scheme', localStorage.colorScheme);
-//   select.value = localStorage.colorScheme;
-// }
-
-// // Save new preference when changed
-// select.addEventListener('input', function (event) {
-//   let value = event.target.value;
-//   document.documentElement.style.setProperty('color-scheme', value);
-//   localStorage.colorScheme = value;
-// });
-
-
+// --- Contact form handling ---
 const form = document.querySelector('form');
 
 form?.addEventListener('submit', e => {
-  e.preventDefault(); // prevent default form submission
+  e.preventDefault(); // Prevent actual form submission
 
   const data = new FormData(form);
-  let params = [];
+  const params = [];
 
   for (let [name, value] of data) {
     params.push(`${name}=${encodeURIComponent(value)}`);
   }
 
-  const url = `${form.action}?${params.join('&')}`;
-  location.href = url; // open the email client
+  const url = `${form.action}?${params.join("&")}`;
+  location.href = url; // Opens email client with proper fields
 });
-
-{/* <script type="module" src="../global.js"></script> */}
-
-}
