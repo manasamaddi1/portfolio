@@ -43,7 +43,7 @@ for (let p of pages) {
 const themeLabel = document.createElement('label');
 themeLabel.className = 'color-scheme';
 themeLabel.innerHTML = `
-  Theme:&nbsp; 
+  Theme:&nbsp&nbsp; 
   <select>
     <option value="light dark">Automatic</option>
     <option value="light">Light</option>
