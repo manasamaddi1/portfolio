@@ -17,15 +17,18 @@ body {
   }
 
   .color-scheme {
-    position: fixed;
-    top: 1px;
-    right: 1px;
-    left:1px;
-    font-size: 100%;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1rem;
     font-family: inherit;
-    background: transparent;
-    padding: 0.5em;
+    background: white;
+    color: white;
+    padding: 0.4rem 0.6rem;
+    border-radius: 4px;
+    z-index: 1000;
   }
+  
 
   select {
     font: inherit;
