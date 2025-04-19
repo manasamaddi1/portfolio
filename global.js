@@ -51,12 +51,10 @@ themeLabel.innerHTML = `
   </select>
 `;
 
-// Add nav and switcher into header
 header.appendChild(nav);
-header.appendChild(themeLabel);
+document.body.prepend(header);        // Add header with nav
+document.body.prepend(themeLabel);    // Add theme dropdown separately (OUTSIDE nav)
 
-// Add header to the page
-document.body.prepend(header);
 
 // --- Theme switcher logic ---
 const select = themeLabel.querySelector('select');

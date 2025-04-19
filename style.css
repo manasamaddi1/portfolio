@@ -17,17 +17,21 @@ body {
   }
 
   .color-scheme {
-    position: absolute;
+    position: fixed;
     top: 1rem;
     right: 1rem;
     font-size: 1rem;
     font-family: inherit;
-    background: white;
-    color: ColorText;
+    background: transparent;
+    color: CanvasText;
     padding: 0.4rem 0.6rem;
     border-radius: 4px;
     z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
   }
+  
   
 
   select {
