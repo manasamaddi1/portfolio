@@ -36,13 +36,13 @@ body {
 
   select {
     font: inherit;
-    background-color: white; /* Ensures light background */
-    color: black;             /* Forces text to be black */
+    background-color: white; 
+    color: black;            
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 1.1em;
     padding: 0.2em 0.4em;
-    appearance: none; /* Optional: standardize across browsers */
+    appearance: none; 
   }
   
   
@@ -286,7 +286,6 @@ img {
 
 
 
-/* Default styles = dark mode */
 .projects > article {
   display: grid;
   grid-template-rows: subgrid;
@@ -296,7 +295,6 @@ img {
   border: 1px solid #444;
   border-radius: 8px;
   min-height: 40em; 
-              /* light text */
 }
 
 

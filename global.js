@@ -1,4 +1,3 @@
-// --- Navigation bar + Theme switcher ---
 const BASE_PATH = (location.hostname === "localhost" || location.hostname === "127.0.0.1")
   ? "/"
   : "/portfolio/";
@@ -6,7 +5,6 @@ const BASE_PATH = (location.hostname === "localhost" || location.hostname === "1
 const header = document.createElement('header');
 header.className = 'site-header';
 
-// Create nav
 const nav = document.createElement('nav');
 const pages = [
   { url: '', title: 'Home' },
@@ -39,7 +37,6 @@ for (let p of pages) {
   nav.appendChild(a);
 }
 
-// Create theme switcher
 const themeLabel = document.createElement('label');
 themeLabel.className = 'color-scheme';
 themeLabel.innerHTML = `
@@ -52,11 +49,10 @@ themeLabel.innerHTML = `
 `;
 
 header.appendChild(nav);
-document.body.prepend(header);        // Add header with nav
-document.body.prepend(themeLabel);    // Add theme dropdown separately (OUTSIDE nav)
+document.body.prepend(header);       
+document.body.prepend(themeLabel);  
 
 
-// --- Theme switcher logic ---
 const select = themeLabel.querySelector('select');
 
 function setColorScheme(colorScheme) {
