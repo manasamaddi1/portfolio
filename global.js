@@ -1,39 +1,13 @@
-// --- Theme switcher dropdown ---
-document.body.insertAdjacentHTML(
-  'afterbegin',
-  `
-  <label class="color-scheme">
-    Theme:
-    <select>
-      <option value="light dark">Automatic</option>
-      <option value="light">Light</option>
-      <option value="dark">Dark</option>
-    </select>
-  </label>
-  `
-);
+// --- Navigation bar + Theme switcher ---
+const BASE_PATH = (location.hostname === "localhost" || location.hostname === "127.0.0.1")
+  ? "/"
+  : "/portfolio/";
 
-let select = document.querySelector('.color-scheme select');
+const header = document.createElement('header');
+header.className = 'site-header';
 
-// Function to set color scheme and save preference
-function setColorScheme(colorScheme) {
-  document.documentElement.style.setProperty('color-scheme', colorScheme);
-  select.value = colorScheme;
-  localStorage.colorScheme = colorScheme;
-}
-
-// Load saved theme preference on page load
-if ("colorScheme" in localStorage) {
-  setColorScheme(localStorage.colorScheme);
-}
-
-// Change theme when dropdown is used
-select.addEventListener('input', function(event) {
-  setColorScheme(event.target.value);
-});
-
-
-// --- Navigation bar ---
+// Create nav
+const nav = document.createElement('nav');
 const pages = [
   { url: '', title: 'Home' },
   { url: 'projects', title: 'Projects' },
@@ -41,13 +15,6 @@ const pages = [
   { url: 'contact', title: 'Contact' },
   { url: 'https://github.com/manasamaddi1', title: 'GitHub' }
 ];
-
-const BASE_PATH = (location.hostname === "localhost" || location.hostname === "127.0.0.1")
-  ? "/"
-  : "/portfolio/"; // replace with your GitHub repo name if different
-
-const nav = document.createElement('nav');
-document.body.prepend(nav);
 
 for (let p of pages) {
   let url = p.url;
@@ -72,16 +39,38 @@ for (let p of pages) {
   nav.appendChild(a);
 }
 
-// --- Contact form handling ---
-const form = document.querySelector('#contact-form');
+// Create theme switcher
+const themeLabel = document.createElement('label');
+themeLabel.className = 'color-scheme';
+themeLabel.innerHTML = `
+  Theme:
+  <select>
+    <option value="light dark">Automatic</option>
+    <option value="light">Light</option>
+    <option value="dark">Dark</option>
+  </select>
+`;
 
-form?.addEventListener('submit', e => {
-  e.preventDefault();
+// Add nav and switcher into header
+header.appendChild(nav);
+header.appendChild(themeLabel);
 
-  const subject = encodeURIComponent(form.subject.value);
-  const body = encodeURIComponent(form.message.value);
+// Add header to the page
+document.body.prepend(header);
 
-  const mailto = `mailto:lmaddi@ucsd.edu?subject=${subject}&body=${body}`;
-  window.location.href = mailto;
+// --- Theme switcher logic ---
+const select = themeLabel.querySelector('select');
+
+function setColorScheme(colorScheme) {
+  document.documentElement.style.setProperty('color-scheme', colorScheme);
+  select.value = colorScheme;
+  localStorage.colorScheme = colorScheme;
+}
+
+if ("colorScheme" in localStorage) {
+  setColorScheme(localStorage.colorScheme);
+}
+
+select.addEventListener('input', function (event) {
+  setColorScheme(event.target.value);
 });
-
