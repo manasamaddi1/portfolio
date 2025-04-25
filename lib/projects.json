@@ -3,38 +3,41 @@
 
         "title": "National Power Outage Duration Predictor",
         "year": "2024",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Used statistical tests and regression models to predict power outage durations across the U.S. based on environmental and infrastructure factors."
+        "image": "https://media.wired.com/photos/61857ab5c4b863206a589936/master/pass/Gear-Prepare-for-Blackouts-1155510644.jpg",
+        "description": "For this project, I analyzed national power outage data and used regression models to predict how long outages would last based on environmental and infrastructure factors like storm type, region, and utility company. I pulled data from FEMA, NOAA, and the U.S. Energy Information Administration, cleaned and merged the datasets, and performed statistical tests to validate hypotheses. I also visualized key findings with Python libraries like Seaborn and Plotly, making it easy to spot regional disparities and trends over time. This project helped me build stronger skills in data wrangling, model evaluation, and real-world problem-solving."
+
       },
       {
         "title": "Taylor Swift Song Recommender",
         "year": "2023",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Built a tool using Spotify audio features and Genius lyrics API to recommend songs and enable lyrical search."
+        "image": "https://s.yimg.com/ny/api/res/1.2/v6jVZokFHxbK7LoLHYaCkA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyNDI7aD04ODM-/https://media.zenfs.com/en/men_s_journal_718/1565836d167d280f0e0e5e78d849b6ff",
+        "description": "I created a fun and personalized recommendation system that suggests Taylor Swift songs based on a user's mood or lyric preferences. I used the Spotify API to gather audio features like tempo, energy, and danceability, and integrated the Genius API to enable users to search lyrics. I implemented cosine similarity and mood-based filters to fine-tune the recommendations. The project not only taught me how to work with external APIs but also gave me experience designing algorithms that connect data with human preferences. It was a great way to blend creativity with technical skills."
       },
       {
-        "title": "Image Processing App with KNN Classifier",
+        "title": "Geospatial Analysis",
         "year": "2022",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "image": "https://nicholas.duke.edu/sites/default/files/styles/rectangle_765x500/public/images/GIS%20wildland%20fire%20potential%20map.jpg?itok=Tep43LCK",
         "description": "Created an app that classifies images using KNN, RGB processing, and Python\u2019s Pillow and tkinter libraries."
       },
       {
         "title": "Meteorite Data Visualization",
         "year": "2023",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Visualized NASA meteorite landings using folium maps and statistical analysis to explore global impact trends."
+        "image": "https://news.fullerton.edu/app/uploads/2023/02/Mars-meteorite-800x500.jpg",
+        "description": "I worked with NASA’s meteorite landing dataset to explore global trends in meteorite impacts. Using Pandas, I cleaned and filtered the data, then used Folium to create an interactive map that visualized the geographic distribution of meteorites. I also applied statistical analysis to look for patterns related to meteorite mass, fall type (observed vs. found), and year. This project taught me how to combine data science and mapping tools to tell meaningful stories through visualization, and it helped me appreciate how data can reveal hidden patterns in natural events."
     },
     {
         "title": "Product Usage Insights for After Hours",
         "year": "2023",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Analyzed survey and engagement data to identify user retention patterns and inform marketing strategies."
+        "image": "../images/afterhours.jpg",
+        "description": "As part of a student team, I analyzed survey responses and in-app behavior data for After Hours, a productivity app built for college students. I helped identify key engagement drop-offs, proposed feature adjustments to improve retention, and used visualizations to communicate our findings to the development team. The insights shaped the marketing strategy and informed a redesign of the app’s onboarding experience. It was a valuable hands-on experience working with real user data to make a digital product more user-friendly and effective."
+
+
     },
     {
         "title": "DS3: World Economic Forecasting with Time Series",
         "year": "2017",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Led a FinTech project modeling trends across global powers using predictive time series analysis."
+        "image": "https://gmk.center/wp-content/uploads/2023/09/shutterstock_2154195865-1.png",
+        "description": "In this FinTech-focused research project, I joined a team at UCSD’s Data Science Student Society to forecast macroeconomic indicators like GDP growth and inflation for countries like the U.S., China, and India. We gathered data from global sources like the IMF and World Bank, cleaned it, and built time series models using ARIMA and exponential smoothing techniques. I helped visualize trends and compare model performance using dashboards. This project strengthened my skills in predictive modeling, collaboration, and making economic data digestible for a broader audience."
       },
     {
         "title": "Recusandae culpa accusamus repellendus?",
