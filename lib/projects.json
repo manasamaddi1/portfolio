@@ -17,7 +17,7 @@
         "title": "Geospatial Analysis",
         "year": "2022",
         "image": "https://nicholas.duke.edu/sites/default/files/styles/rectangle_765x500/public/images/GIS%20wildland%20fire%20potential%20map.jpg?itok=Tep43LCK",
-        "description": "Created an app that classifies images using KNN, RGB processing, and Python\u2019s Pillow and tkinter libraries."
+        "description": "In this project, I worked on mapping environmental risk indices—such as air pollution, water quality, and health disparities—across San Diego census tracts. I started by compiling datasets from environmental and public health sources and used Principal Component Analysis (PCA) to reduce dimensionality while preserving meaningful patterns across variables. I built interactive maps using mapping tools like Leaflet and OpenStreetMap to visualize disparities at a local level. "
       },
       {
         "title": "Meteorite Data Visualization",
