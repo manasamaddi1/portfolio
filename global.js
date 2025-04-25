@@ -68,3 +68,62 @@ if ("colorScheme" in localStorage) {
 select.addEventListener('input', function (event) {
   setColorScheme(event.target.value);
 });
+
+
+
+
+export async function fetchJSON(url) {
+  try {
+    const response = await fetch(url);
+
+    if (!response.ok) {
+      throw new Error(`Failed to fetch projects: ${response.statusText}`);
+    }
+
+    const data = await response.json();
+
+    console.log('Fetched data:', data);
+
+    return data;
+
+  } catch (error) {
+    console.error('Error fetching or parsing JSON data:', error);
+  }
+}
+
+
+
+export function renderProjects(projects, containerElement, headingLevel = 'h2') {
+  // Step 2: Clear old content
+  if (!containerElement) {
+    console.error('Container element not found.');
+    return;
+  }
+  containerElement.innerHTML = '';
+
+  // Step 3: Loop through projects
+  for (const project of projects) {
+    const article = document.createElement('article');
+
+    // Step 4: Build dynamic content
+    const titleTag = document.createElement(headingLevel);
+    titleTag.textContent = project.title;
+
+    const image = document.createElement('img');
+    image.src = project.image || 'https://via.placeholder.com/300x200';
+    image.alt = project.title;
+
+    const desc = document.createElement('p');
+    desc.textContent = project.description || 'No description available.';
+
+    // Append elements to article
+    article.appendChild(titleTag);
+    article.appendChild(image);
+    article.appendChild(desc);
+
+    // Step 5: Append article to container
+    containerElement.appendChild(article);
+  }
+}
+
+
