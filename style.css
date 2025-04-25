@@ -298,6 +298,31 @@ img {
 }
 
 
+#profile-stats dl {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5em 2em;
+  text-align: center;
+  margin-top: 1.5em;
+}
+
+#profile-stats dt {
+  font-weight: 600;
+  font-size: 0.9em;
+  color: #667085; /* subtle gray */
+  text-transform: uppercase;
+  grid-row: 1;
+}
+
+#profile-stats dd {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 500;
+  grid-row: 2;
+}
+
+
+
 
 
 
