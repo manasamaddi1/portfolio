@@ -1,75 +1,69 @@
 [
     {
-  
-      "title": "National Power Outage Duration Predictor",
-      "year": "2024",
-      "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-      "description": "Used statistical tests and regression models to predict power outage durations across the U.S. based on environmental and infrastructure factors."
+
+        "title": "National Power Outage Duration Predictor",
+        "year": "2024",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Used statistical tests and regression models to predict power outage durations across the U.S. based on environmental and infrastructure factors."
+      },
+      {
+        "title": "Taylor Swift Song Recommender",
+        "year": "2023",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Built a tool using Spotify audio features and Genius lyrics API to recommend songs and enable lyrical search."
+      },
+      {
+        "title": "Image Processing App with KNN Classifier",
+        "year": "2022",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Created an app that classifies images using KNN, RGB processing, and Python\u2019s Pillow and tkinter libraries."
+      },
+      {
+        "title": "Meteorite Data Visualization",
+        "year": "2023",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Visualized NASA meteorite landings using folium maps and statistical analysis to explore global impact trends."
     },
     {
-      "title": "Taylor Swift Song Recommender",
-      "year": "2023",
-      "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-      "description": "Built a tool using Spotify audio features and Genius lyrics API to recommend songs and enable lyrical search."
+        "title": "Product Usage Insights for After Hours",
+        "year": "2023",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Analyzed survey and engagement data to identify user retention patterns and inform marketing strategies."
     },
     {
-      "title": "Image Processing App with KNN Classifier",
-      "year": "2022",
-      "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-      "description": "Created an app that classifies images using KNN, RGB processing, and Python\u2019s Pillow and tkinter libraries."
+        "title": "DS3: World Economic Forecasting with Time Series",
+        "year": "2017",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Led a FinTech project modeling trends across global powers using predictive time series analysis."
+      },
+    {
+        "title": "Recusandae culpa accusamus repellendus?",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Aut facilis possimus consequuntur placeat facere? Perspiciatis possimus reprehenderit aliquid eaque minima nemo sit nulla blanditiis illo, doloribus similique illum, quae repellendus impedit minus non quos officia ipsam vitae! Nemo?"
     },
     {
-      "title": "Meteorite Data Visualization",
-      "year": "2023",
-      "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-      "description": "Visualized NASA meteorite landings using folium maps and statistical analysis to explore global impact trends."
+        "title": "Laudantium doloremque modi cum.",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Neque dolorum modi nisi optio at est et quasi provident dignissimos dolor nesciunt voluptatem harum tenetur reprehenderit, totam omnis, nostrum minus ea error, ducimus voluptate. Iusto quasi quaerat atque qui."
     },
     {
-      "title": "AI Waste Sorting Robot",
-      "year": "2019",
-      "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-      "description": "Designed a Raspberry Pi-powered robot to detect and sort recyclables using image classification."
+        "title": "Quis ullam facilis officia?",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Non vero ipsa provident voluptatum quidem atque consectetur iste suscipit reprehenderit laboriosam ab nobis ipsam mollitia tenetur numquam, pariatur reiciendis eius optio? Unde dolore molestias incidunt soluta, dolor commodi repudiandae."
     },
     {
-      "title": "FIRST Robotics YouTube Crash Course",
-      "year": "2020",
-      "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-      "description": "Launched a 106-video series teaching robotics, CAD, and physics, viewed over 74,000 times by global audiences."
+        "title": "Dicta eum ipsum adipisci.",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Eius asperiores modi, nam voluptatum mollitia fugiat dignissimos nostrum, reiciendis dolorem porro quam vel aliquam id perspiciatis est. Culpa accusantium officia pariatur iure recusandae autem suscipit cum doloremque omnis delectus."
     },
     {
-      "title": "AI for Conservation Curriculum",
-      "year": "2023",
-      "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-      "description": "Co-designed a STEM curriculum focusing on AI and sustainability, now implemented in 10+ schools."
+        "title": "Doloribus expedita nostrum incidunt.",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Blanditiis, voluptates maiores, itaque odio ad cupiditate optio quisquam sint adipisci officiis praesentium! Beatae eius non quisquam similique! Neque eius error illum velit sit pariatur hic. Repudiandae maxime eum quam."
     },
     {
-      "title": "Shang Lab GoalEX NLP Research",
-      "year": "2024",
-      "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-      "description": "Worked on explainable AI by clustering documents using hierarchical language embeddings and OpenAI APIs."
-    },
-    {
-      "title": "Product Usage Insights for After Hours",
-      "year": "2023",
-      "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-      "description": "Analyzed survey and engagement data to identify user retention patterns and inform marketing strategies."
-    },
-    {
-      "title": "FTC Robotics Elective Program",
-      "year": "2024",
-      "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-      "description": "Developed and led a full-semester robotics elective in local schools, increasing student interest in STEM."
-    },
-    {
-      "title": "GitHub API Integration",
-      "year": "2024",
-      "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-      "description": "Connected GitHub\u2019s API to display real-time profile stats like followers, repos, and gists on portfolio site."
-    },
-    {
-      "title": "World Economic Forecasting with Time Series",
-      "year": "2017",
-      "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-      "description": "Led a FinTech project modeling trends across global powers using predictive time series analysis."
+        "title": "Animi iure illum excepturi.",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Nam hic incidunt, quasi voluptatibus accusamus placeat consequatur! Aliquam voluptatem sint deserunt ab enim hic, laboriosam fugit magni repellat aperiam veritatis quod magnam provident dignissimos expedita pariatur maxime molestias rem."
     }
-  ]
+]
