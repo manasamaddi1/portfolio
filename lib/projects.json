@@ -4,7 +4,7 @@
         "title": "National Power Outage Duration Predictor",
         "year": "2024",
         "image": "https://media.wired.com/photos/61857ab5c4b863206a589936/master/pass/Gear-Prepare-for-Blackouts-1155510644.jpg",
-        "description": "For this projecttt, I analyzed national power outage data and used regression models to predict how long outages would last based on environmental and infrastructure factors like storm type, region, and utility company. I pulled data from FEMA, NOAA, and the U.S. Energy Information Administration, cleaned and merged the datasets, and performed statistical tests to validate hypotheses. I also visualized key findings with Python libraries like Seaborn and Plotly, making it easy to spot regional disparities and trends over time. This project helped me build stronger skills in data wrangling, model evaluation, and real-world problem-solving."
+        "description": "For this project, I analyzed national power outage data and used regression models to predict how long outages would last based on environmental and infrastructure factors like storm type, region, and utility company. I pulled data from FEMA, NOAA, and the U.S. Energy Information Administration, cleaned and merged the datasets, and performed statistical tests to validate hypotheses. I also visualized key findings with Python libraries like Seaborn and Plotly, making it easy to spot regional disparities and trends over time. This project helped me build stronger skills in data wrangling, model evaluation, and real-world problem-solving."
 
       },
       {
