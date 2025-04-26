@@ -4,32 +4,32 @@
         "title": "National Power Outage Duration Predictor",
         "year": "2024",
         "image": "https://media.wired.com/photos/61857ab5c4b863206a589936/master/pass/Gear-Prepare-for-Blackouts-1155510644.jpg",
-        "description": "For this project, I analyzed national power outage data and used regression models to predict how long outages would last based on environmental and infrastructure factors like storm type, region, and utility company. I pulled data from FEMA, NOAA, and the U.S. Energy Information Administration, cleaned and merged the datasets, and performed statistical tests to validate hypotheses. I also visualized key findings with Python libraries like Seaborn and Plotly, making it easy to spot regional disparities and trends over time. This project helped me build stronger skills in data wrangling, model evaluation, and real-world problem-solving."
+        "description": "I examined national power outage statistics for this initiative and applied regression models to forecast how long outages will continue depending on environmental and infrastructure elements including storm type, area, and utility company. I gathered data from FEMA, NOAA, and the U.S. Energy Information Administration, cleaned and combined the databases, and ran statistical tests to confirm theories. Using Python tools such as Seaborn and Plotly, I also displayed important results, which helped to highlight geographical differences and trends over time."
 
       },
       {
         "title": "Taylor Swift Song Recommender",
         "year": "2023",
         "image": "https://s.yimg.com/ny/api/res/1.2/v6jVZokFHxbK7LoLHYaCkA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyNDI7aD04ODM-/https://media.zenfs.com/en/men_s_journal_718/1565836d167d280f0e0e5e78d849b6ff",
-        "description": "I created a fun and personalized recommendation system that suggests Taylor Swift songs based on a user's mood or lyric preferences. I used the Spotify API to gather audio features like tempo, energy, and danceability, and integrated the Genius API to enable users to search lyrics. I implemented cosine similarity and mood-based filters to fine-tune the recommendations. The project not only taught me how to work with external APIs but also gave me experience designing algorithms that connect data with human preferences. It was a great way to blend creativity with technical skills."
+        "description": "Based on a user's mood or lyric preferences, I built a fun and tailored recommendation tool that recommends Taylor Swift songs. Using the Spotify API, I collected audio characteristics including tempo, energy, and danceability; I also included the Genius API so users could look up lyrics. To hone the suggestions, I used mood-based filters and cosine similarity. The project not only showed me how to use outside APIs but also provided me with knowledge creating algorithms linking human preferences with data. It was a fantastic opportunity to combine technical skills with imagination."
       },
       {
         "title": "Geospatial Analysis",
         "year": "2022",
         "image": "https://nicholas.duke.edu/sites/default/files/styles/rectangle_765x500/public/images/GIS%20wildland%20fire%20potential%20map.jpg?itok=Tep43LCK",
-        "description": "In this project, I worked on mapping environmental risk indices—such as air pollution, water quality, and health disparities—across San Diego census tracts. I started by compiling datasets from environmental and public health sources and used Principal Component Analysis (PCA) to reduce dimensionality while preserving meaningful patterns across variables. I built interactive maps using mapping tools like Leaflet and OpenStreetMap to visualize disparities at a local level. "
+        "description": "Mapping environmental risk indices—such as air pollution, water quality, and health inequalities—across San Diego census tracts was my responsibility in this research. Starting with environmental and public health data, I used Principal Component Analysis (PCA) to lower dimensionality while maintaining significant patterns across variables. To show local level differences, I created interactive maps using OpenStreetMap and Leaflet among other mapping tools."
       },
       {
         "title": "Meteorite Data Visualization",
         "year": "2023",
         "image": "https://news.fullerton.edu/app/uploads/2023/02/Mars-meteorite-800x500.jpg",
-        "description": "I worked with NASA’s meteorite landing dataset to explore global trends in meteorite impacts. Using Pandas, I cleaned and filtered the data, then used Folium to create an interactive map that visualized the geographic distribution of meteorites. I also applied statistical analysis to look for patterns related to meteorite mass, fall type (observed vs. found), and year. This project taught me how to combine data science and mapping tools to tell meaningful stories through visualization, and it helped me appreciate how data can reveal hidden patterns in natural events."
+        "description": "Using NASA's meteorite landing information, I investigated worldwide patterns in meteorite strikes. I filtered and cleaned the data using Pandas, then produced an interactive map showing the meteorite geographic distribution using Folium. I also used statistical analysis to search for patterns connected to meteorite mass, fall type (observed vs. found), and year. This project made me value how data may expose concealed patterns in natural events and showed me how to use mapping tools and data science to make interesting stories by means of visualization."
     },
     {
         "title": "Product Usage Insights for After Hours",
         "year": "2023",
         "image": "../images/afterhours.jpg",
-        "description": "As part of a student team, I analyzed survey responses and in-app behavior data for After Hours, a productivity app built for college students. I helped identify key engagement drop-offs, proposed feature adjustments to improve retention, and used visualizations to communicate our findings to the development team. The insights shaped the marketing strategy and informed a redesign of the app’s onboarding experience. It was a valuable hands-on experience working with real user data to make a digital product more user-friendly and effective."
+        "description": "Working with a student team, I examined in-app activity data and survey results for After Hours, a productivity tool created for college students. I created visualizations to present our results to the development team, helped to locate important engagement drop-offs, and suggested feature changes to boost retention. The analysis guided a redesign of the app's onboarding process and helped to build the marketing plan. Working with actual user data to create a digital product more user-friendly and efficient was a worthwhile hands-on experience."
 
 
     },
