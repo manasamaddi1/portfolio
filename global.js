@@ -113,7 +113,12 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
     image.src = project.image || 'https://via.placeholder.com/300x200';
     image.alt = project.title;
 
+    const year = document.createElement('div');
+    year.className = 'project-year';
+    year.textContent = `Year: ${project.year ?? 'N/A'}`;
+
     const desc = document.createElement('p');
+    desc.className = 'project-description';
     desc.textContent = project.description || 'No description available.';
 
     // Append elements to article
@@ -122,6 +127,10 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
     article.appendChild(desc);
 
     // Step 5: Append article to container
+    article.appendChild(titleTag);
+    article.appendChild(image);
+    article.appendChild(year);
+    article.appendChild(desc);
     containerElement.appendChild(article);
   }
 }

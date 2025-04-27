@@ -288,9 +288,6 @@ img {
 
 
 
-
-
-
 .projects > article {
   display: grid;
   grid-template-rows: subgrid;
@@ -301,6 +298,25 @@ img {
   border-radius: 8px;
   min-height: 40em; 
 }
+
+.project-year {
+  font-weight: bold;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  display: block;
+  text-align: center;
+  color: var(--text-color, white);
+  line-height: 1.4;
+}
+
+.project-description {
+  margin-top: 3rem;
+  margin-bottom: 0;
+  line-height: 1.6;
+  text-align: left;
+}
+
+
 
 
 #profile-stats dl {
