@@ -94,18 +94,15 @@ export async function fetchJSON(url) {
 
 
 export function renderProjects(projects, containerElement, headingLevel = 'h2') {
-  // Step 2: Clear old content
   if (!containerElement) {
     console.error('Container element not found.');
     return;
   }
   containerElement.innerHTML = '';
 
-  // Step 3: Loop through projects
   for (const project of projects) {
     const article = document.createElement('article');
 
-    // Step 4: Build dynamic content
     const titleTag = document.createElement(headingLevel);
     titleTag.textContent = project.title;
 
@@ -121,12 +118,10 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
     desc.className = 'project-description';
     desc.textContent = project.description || 'No description available.';
 
-    // Append elements to article
     article.appendChild(titleTag);
     article.appendChild(image);
     article.appendChild(desc);
 
-    // Step 5: Append article to container
     article.appendChild(titleTag);
     article.appendChild(image);
     article.appendChild(year);
