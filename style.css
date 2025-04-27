@@ -318,13 +318,17 @@ img {
 
 
 
-
 #profile-stats dl {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 0.5em 2em;
   text-align: center;
   margin-top: 1.5em;
+
+}
+
+.projects + h2 {
+  margin-top: 6rem;
 }
 
 #profile-stats dt {
