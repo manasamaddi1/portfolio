@@ -354,9 +354,19 @@ img {
 }
 
 .legend {
-  max-width: 40em;
-  margin: 2em auto;
+  display: flex;
+  flex-wrap: nowrap; /* Set to wrap if screen is too small: use 'wrap' instead */
+  justify-content: center;
+  align-items: center;
+  gap: 1.5em;
   padding: 1em;
+  margin: 2em auto;
+  border: 1px solid #ccc;
+  border-radius: 0.5em;
+  background-color: white;
+  list-style: none;
+  max-width: fit-content;
+  overflow-x: auto;
 }
 
 
@@ -364,6 +374,7 @@ img {
   display: flex;
   align-items: center;
   gap: 0.5em;
+  font-size: 0.95em;
 }
 
 .swatch {
@@ -373,6 +384,7 @@ img {
   border-radius: 0.25em;
   display: inline-block;
 }
+
 
 
 
