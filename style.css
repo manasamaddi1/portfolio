@@ -403,6 +403,35 @@ img {
   color: black;
 }
 
+/* Smooth transitions for pie wedges */
+#projects-pie-plot path {
+  transition: opacity 300ms, transform 300ms;
+}
+
+/* When one wedge is hovered, dim all others */
+#projects-pie-plot:has(path:hover) path:not(:hover) {
+  opacity: 0.5;
+}
+
+path {
+  cursor: pointer;
+  transition: opacity 300ms, fill 300ms;
+}
+
+/* Highlight the selected wedge or legend item */
+.selected {
+  --color: oklch(60% 45% 0) !important; /* 💡 override original color */
+}
+
+.selected:is(path) {
+  fill: var(--color);
+}
+
+.selected.legend-item .swatch {
+  background-color: var(--color);
+}
+
+
 
 
 
