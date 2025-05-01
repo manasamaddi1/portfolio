@@ -155,7 +155,7 @@ button {
   grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
   gap: 3em;
   align-items: start;
-  margin-top: 2rem;
+  margin-top: 0rem;
 }
 
 
@@ -345,6 +345,15 @@ img {
   font-weight: 500;
   grid-row: 2;
 }
+
+#projects-pie-plot {
+  display: block;
+  margin: 15em auto 0em auto; /* Top auto bottom auto */
+  max-width: 20em;
+  overflow: visible;
+}
+
+
 
 
 
