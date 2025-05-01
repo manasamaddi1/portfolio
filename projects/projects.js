@@ -12,32 +12,45 @@ if (titleElement) {
   titleElement.textContent = `${projects.length} Projects`;
 }
 
-// ----------- Step 1.4–1.6: D3 Pie Chart Setup -----------
+// ----------- Step 2.1: D3 Pie Chart with Labels -----------
 
-// Data to visualize (Step 1.5 updated data)
-const data = [1, 2, 3, 4, 5, 5];
+let data = [
+  { value: 1, label: 'apples' },
+  { value: 2, label: 'oranges' },
+  { value: 3, label: 'mangos' },
+  { value: 4, label: 'pears' },
+  { value: 5, label: 'limes' },
+  { value: 5, label: 'cherries' },
+];
 
 // Arc generator
-const arcGenerator = d3.arc()
-  .innerRadius(0)
-  .outerRadius(50);
+let arcGenerator = d3.arc().innerRadius(0).outerRadius(50);
 
-// Create pie slice angle data
-const sliceGenerator = d3.pie();
-const arcData = sliceGenerator(data);
+// Slice generator: tells D3 how to access `.value` in each object
+let sliceGenerator = d3.pie().value((d) => d.value);
 
-// Convert to SVG path strings
-const arcs = arcData.map(d => arcGenerator(d));
+// Generate arc path data
+let arcData = sliceGenerator(data);
 
-// Color scale using D3 built-in palette
-const colors = d3.scaleOrdinal(d3.schemeTableau10);
+// Color scale
+let colors = d3.scaleOrdinal(d3.schemeTableau10);
 
-// Append all paths to the SVG and shift to the left
-const svg = d3.select('#projects-pie-plot');
-
-svg.selectAll('path')
-  .data(arcs)
+// Draw pie slices
+d3.select('#projects-pie-plot')
+  .selectAll('path')
+  .data(arcData)
   .join('path')
-  .attr('d', d => d)
-  .attr('fill', (_, i) => colors(i))
-  .attr('transform', 'translate(-40, 0)');  // Shift the pie left
+  .attr('d', arcGenerator)
+  .attr('fill', (d, i) => colors(i))
+  .attr('transform', 'translate(50, 50)');
+
+  let legend = d3.select('.legend');
+data.forEach((d, idx) => {
+  legend.append('li')
+    .attr('style', `--color:${colors(idx)}`)
+    .attr('class', 'legend-item')
+    .html(`<span class="swatch"></span> ${d.label} <em>(${d.value})</em>`);
+
+
+});
+
