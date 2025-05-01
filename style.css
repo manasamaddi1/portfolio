@@ -351,22 +351,18 @@ img {
   margin: 2em auto 1em auto;
   max-width: 20em;
   overflow: visible;
+  height: auto;
 }
 
 .legend {
-  display: flex;
-  flex-wrap: nowrap; /* Set to wrap if screen is too small: use 'wrap' instead */
-  justify-content: center;
-  align-items: center;
-  gap: 1.5em;
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(9em, 1fr));
+  gap: 0.5em 1em;
   padding: 1em;
-  margin: 2em auto;
   border: 1px solid #ccc;
   border-radius: 0.5em;
   background-color: white;
-  list-style: none;
-  max-width: fit-content;
-  overflow-x: auto;
 }
 
 
@@ -383,6 +379,15 @@ img {
   background-color: var(--color);
   border-radius: 0.25em;
   display: inline-block;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2em;
+  flex-wrap: wrap; /* enables responsiveness */
+  margin-bottom: 2em;
 }
 
 
