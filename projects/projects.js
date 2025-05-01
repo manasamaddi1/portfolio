@@ -54,19 +54,18 @@ function renderLegend(data) {
 }
 
 
-function filterBySelectionAndQuery(chartData) {
+function filterBySelectionAndQuery(chartData, baseProjects = projects) {
   let filtered;
 
   if (selectedIndex === -1) {
-    filtered = projects.filter((project) => {
+    filtered = baseProjects.filter((project) => {
       let values = Object.values(project).join('\n').toLowerCase();
       return values.includes(query);
     });
   } else {
-
     const selectedYear = chartData[selectedIndex].label;
 
-    filtered = projects.filter((project) => {
+    filtered = baseProjects.filter((project) => {
       let values = Object.values(project).join('\n').toLowerCase();
       let matchesQuery = values.includes(query);
       let matchesYear = project.year == selectedYear;
@@ -82,25 +81,38 @@ function filterBySelectionAndQuery(chartData) {
   }
 }
 
+
 const searchInput = document.querySelector('.searchBar');
+
+
 searchInput.addEventListener('input', (event) => {
   query = event.target.value.toLowerCase();
 
+  // First, filter projects just by query
+  const searchFilteredProjects = projects.filter((project) => {
+    let values = Object.values(project).join('\n').toLowerCase();
+    return values.includes(query);
+  });
+
   const rolledData = d3.rollups(
-    projects.filter((project) => {
-      let values = Object.values(project).join('\n').toLowerCase();
-      return values.includes(query);
-    }),
+    searchFilteredProjects,
     v => v.length,
     d => d.year
   ).sort((a, b) => b[0] - a[0]);
 
-  const data = rolledData.map(([year, count]) => ({ value: count, label: year }));
+  const data = rolledData.map(([year, count]) => ({
+    value: count,
+    label: year
+  }));
 
   renderChart(data);
   renderLegend(data);
-  filterBySelectionAndQuery(data);
+  filterBySelectionAndQuery(data, searchFilteredProjects);  // 👈 pass it here too
 });
+
+
+
+
 
 
 const rolled = d3.rollups(
