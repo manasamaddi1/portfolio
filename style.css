@@ -305,7 +305,6 @@ img {
   margin-bottom: 0.5rem;
   display: block;
   text-align: center;
-  color: var(--text-color, white);
   line-height: 1.4;
 }
 
@@ -360,9 +359,9 @@ img {
   grid-template-columns: repeat(auto-fit, minmax(9em, 1fr));
   gap: 0.5em 1em;
   padding: 1em;
-  border: 1px solid #ccc;
+  border: 1px;
   border-radius: 0.5em;
-  background-color: white;
+
 }
 
 
@@ -399,8 +398,6 @@ img {
   font-size: 1rem;
   border: 1px solid #ccc;
   border-radius: 0.5em;
-  background-color: white;
-  color: black;
 }
 
 
