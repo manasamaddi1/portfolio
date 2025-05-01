@@ -1,5 +1,7 @@
 import { fetchJSON, renderProjects } from '../global.js';
 import * as d3 from 'https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm';
+let query = '';
+
 
 // Fetch project data and render cards
 const projects = await fetchJSON('../lib/projects.json');
@@ -14,14 +16,20 @@ if (titleElement) {
 
 // ----------- Step 2.1: D3 Pie Chart with Labels -----------
 
-let data = [
-  { value: 1, label: 'apples' },
-  { value: 2, label: 'oranges' },
-  { value: 3, label: 'mangos' },
-  { value: 4, label: 'pears' },
-  { value: 5, label: 'limes' },
-  { value: 5, label: 'cherries' },
-];
+let rolledData = d3.rollups(
+  projects,
+  (v) => v.length,
+  (d) => d.year,
+);
+
+// Sort by year descending (optional for consistent visual order)
+rolledData.sort((a, b) => b[0] - a[0]);
+
+let data = rolledData.map(([year, count]) => ({
+  value: count,
+  label: year
+}));
+
 
 // Arc generator
 let arcGenerator = d3.arc().innerRadius(0).outerRadius(50);
