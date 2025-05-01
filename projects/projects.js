@@ -2,17 +2,14 @@ import { fetchJSON, renderProjects } from '../global.js';
 import * as d3 from 'https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm';
 
 let query = '';
-let selectedIndex = -1; // Track selected pie slice
+let selectedIndex = -1; 
 
-// Fetch project data and render cards
 const projects = await fetchJSON('../lib/projects.json');
 const projectsContainer = document.querySelector('.projects');
 renderProjects(projects, projectsContainer, 'h2');
 
-// Shared color scale
 let colors = d3.scaleOrdinal(d3.schemeTableau10);
 
-// PIE + LEGEND rendering
 function renderChart(data) {
   const sliceGenerator = d3.pie().value(d => d.value);
   const arcData = sliceGenerator(data);
@@ -37,7 +34,7 @@ function renderChart(data) {
   svg.selectAll('path').style('cursor', 'pointer');
 }
 
-// LEGEND rendering (also interactive)
+
 function renderLegend(data) {
   const legend = d3.select('.legend');
   legend.selectAll('li').remove();
@@ -56,18 +53,17 @@ function renderLegend(data) {
   });
 }
 
-// Filter by query AND selected year (if any)
+
 function filterBySelectionAndQuery(chartData) {
   let filtered;
 
   if (selectedIndex === -1) {
-    // No wedge selected: filter only by query
     filtered = projects.filter((project) => {
       let values = Object.values(project).join('\n').toLowerCase();
       return values.includes(query);
     });
   } else {
-    // Wedge selected: filter by query AND year
+
     const selectedYear = chartData[selectedIndex].label;
 
     filtered = projects.filter((project) => {
@@ -86,7 +82,6 @@ function filterBySelectionAndQuery(chartData) {
   }
 }
 
-// Search bar logic
 const searchInput = document.querySelector('.searchBar');
 searchInput.addEventListener('input', (event) => {
   query = event.target.value.toLowerCase();
@@ -107,7 +102,7 @@ searchInput.addEventListener('input', (event) => {
   filterBySelectionAndQuery(data);
 });
 
-// Initial chart render
+
 const rolled = d3.rollups(
   projects,
   v => v.length,
@@ -123,7 +118,7 @@ renderChart(initialData);
 renderLegend(initialData);
 filterBySelectionAndQuery(initialData);
 
-// Update project count
+
 const titleElement = document.querySelector('.projects-title');
 if (titleElement) {
   titleElement.textContent = `${projects.length} Projects`;

@@ -386,7 +386,7 @@ img {
   align-items: center;
   justify-content: center;
   gap: 2em;
-  flex-wrap: wrap; /* enables responsiveness */
+  flex-wrap: wrap; 
   margin-bottom: 2em;
 }
 
@@ -403,12 +403,12 @@ img {
   color: black;
 }
 
-/* Smooth transitions for pie wedges */
+
 #projects-pie-plot path {
   transition: opacity 300ms, transform 300ms;
 }
 
-/* When one wedge is hovered, dim all others */
+
 #projects-pie-plot:has(path:hover) path:not(:hover) {
   opacity: 0.5;
 }
@@ -418,9 +418,9 @@ path {
   transition: opacity 300ms, fill 300ms;
 }
 
-/* Highlight the selected wedge or legend item */
+
 .selected {
-  --color: oklch(60% 45% 0) !important; /* 💡 override original color */
+  --color: oklch(60% 45% 0) !important; 
 }
 
 .selected:is(path) {
