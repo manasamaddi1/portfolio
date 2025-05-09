@@ -11,7 +11,7 @@ const pages = [
   { url: 'projects', title: 'Projects' },
   { url: 'cv', title: 'CV' },
   { url: 'contact', title: 'Contact' },
-  { url: 'https://github.com/manasamaddi1', title: 'GitHub' }
+  { url: 'https://github.com/manasamaddi1', title: 'GitHub' },
 ];
 
 for (let p of pages) {
