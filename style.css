@@ -636,18 +636,21 @@ dl.info[hidden]:not(:hover, :focus-within) {
 }
 
 #language-breakdown dt {
-  font-size: 1.05rem;
-  font-weight: bold;
-  color: purple;
+  font-size: 1.75rem;           /* Match h2 size */
+  font-weight: 600;             /* Match h2 font-weight */
+  color: var(--color-accent);   /* Match accent color */
   margin-bottom: 0.2em;
+  font-family: inherit;
 }
 
 #language-breakdown dd {
   margin: 0;
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #000;
+  font-size: 1.2rem;           /* Slightly smaller than dt */
+  font-weight: 500;
+  color: CanvasText;           /* Same as body text */
+  font-family: inherit;
 }
+
 
 
 
