@@ -107,6 +107,10 @@ function updateTooltipPosition(event) {
   tooltip.style.top = `${event.clientY + 15}px`;
 }
 
+function createBrushSelector(svg) {
+  svg.call(d3.brush());
+}
+
 function renderScatterPlot(data, commits) {
   const width = 1000;
   const height = 600;
@@ -138,27 +142,20 @@ function renderScatterPlot(data, commits) {
     .domain([0, 24])
     .range([usableArea.bottom, usableArea.top]);
 
-  // Add gridlines before axes
   svg.append('g')
     .attr('class', 'gridlines')
     .attr('transform', `translate(${usableArea.left}, 0)`)
-    .call(
-      d3.axisLeft(yScale)
-        .tickFormat('')
-        .tickSize(-usableArea.width)
-    );
+    .call(d3.axisLeft(yScale).tickFormat('').tickSize(-usableArea.width));
 
   const dots = svg.append('g').attr('class', 'dots');
 
   const [minLines, maxLines] = d3.extent(commits, (d) => d.totalLines);
-  const rScale = d3.scaleLinear().domain([minLines, maxLines]).range([2, 30]);
-
-  // Color scale based on time of day
+  const rScale = d3.scaleSqrt().domain([minLines, maxLines]).range([2, 30]);
   const colorScale = d3.scaleSequential(d3.interpolateCool).domain([0, 24]);
+  const sortedCommits = d3.sort(commits, d => -d.totalLines);
 
-  dots
-    .selectAll('circle')
-    .data(commits)
+  dots.selectAll('circle')
+    .data(sortedCommits)
     .join('circle')
     .attr('cx', (d) => xScale(d.datetime))
     .attr('cy', (d) => yScale(d.hourFrac))
@@ -180,20 +177,23 @@ function renderScatterPlot(data, commits) {
     });
 
   const xAxis = d3.axisBottom(xScale);
-  const yAxis = d3
-    .axisLeft(yScale)
-    .tickFormat((d) => String(d % 24).padStart(2, '0') + ':00');
+  const yAxis = d3.axisLeft(yScale).tickFormat((d) => String(d % 24).padStart(2, '0') + ':00');
 
-  svg
-    .append('g')
+  svg.append('g')
     .attr('transform', `translate(0, ${usableArea.bottom})`)
     .call(xAxis);
 
-  svg
-    .append('g')
+  svg.append('g')
     .attr('transform', `translate(${usableArea.left}, 0)`)
     .call(yAxis);
+
+  // ✅ Step 5.1: Add brushing
+  svg.call(d3.brush());
+
+  // ✅ Step 5.2: Raise dots so they’re above the brush overlay
+  svg.selectAll('.dots, .overlay ~ *').raise();
 }
+
 
 let data = await loadData();
 let commits = processCommits(data);
