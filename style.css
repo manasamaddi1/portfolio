@@ -482,6 +482,129 @@ path {
   color: #000;
 }
 
+/* Chart container styling */
+#chart {
+  margin-top: 2rem;
+}
+
+/* Gridlines styling */
+.gridlines line {
+  stroke: #ccc;
+  stroke-opacity: 0.4;
+  shape-rendering: crispEdges;
+}
+.gridlines path {
+  display: none;
+}
+
+/* Optional: Axis text styling for better readability */
+.axis text {
+  font-size: 0.75rem;
+  fill: #333;
+}
+
+/* Optional: Give scatterplot a max width and center it */
+#chart svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Hover effect on dots */
+circle {
+  transition: 200ms;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+circle:hover {
+  transform: scale(1.5);
+}
+
+.dot {
+  transition: 200ms;
+  transform-origin: center;
+  transform-box: fill-box;
+  fill: #1f77b4; /* Reinforce color in case JavaScript is overridden */
+}
+
+.dot:hover {
+  transform: scale(1.5);
+}
+
+
+
+
+
+
+
+
+
+
+.tooltip {
+  pointer-events: none; /* Prevent flickering */
+  position: fixed;
+  top: 1em;
+  left: 1em;
+  background-color: rgba(255, 255, 255, 0.95);
+  color: #000;
+  padding: 1em;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  font-family: sans-serif;
+  max-width: 300px;
+  z-index: 1000;
+}
+
+
+.tooltip.hidden {
+  display: none;
+}
+
+.tooltip a {
+  word-break: break-all;
+  color: var(--color-accent, steelblue);
+}
+
+.tooltip a:hover {
+  text-decoration: underline;
+}
+
+.info {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.4em 1em;
+  margin-top: 0;
+}
+
+.info dt {
+  font-size: 0.75rem;
+  color: #666;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.info dd {
+  margin: 0;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+dl.info {
+  transition-duration: 500ms;
+  transition-property: opacity, visibility;
+}
+
+dl.info[hidden]:not(:hover, :focus-within) {
+  opacity: 0;
+  visibility: hidden;
+}
+
+
+
+
 
 
 
