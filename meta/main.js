@@ -1,5 +1,7 @@
 import * as d3 from 'https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm';
 
+let xScale, yScale; // Global so brush handlers can access
+
 async function loadData() {
   const data = await d3.csv('loc.csv', (row) => ({
     ...row,
@@ -107,9 +109,77 @@ function updateTooltipPosition(event) {
   tooltip.style.top = `${event.clientY + 15}px`;
 }
 
-function createBrushSelector(svg) {
-  svg.call(d3.brush());
+function isCommitSelected(selection, commit) {
+  if (!selection) return false;
+  const [x0, x1] = selection.map(d => d[0]);
+  const [y0, y1] = selection.map(d => d[1]);
+  const x = xScale(commit.datetime);
+  const y = yScale(commit.hourFrac);
+  return x >= x0 && x <= x1 && y >= y0 && y <= y1;
 }
+
+function renderSelectionCount(selection, commits) {
+  const selectedCommits = selection
+    ? commits.filter((d) => isCommitSelected(selection, d))
+    : [];
+
+  const countElement = document.querySelector('#selection-count');
+  countElement.textContent = `${
+    selectedCommits.length || 'No'
+  } commits selected`;
+
+  return selectedCommits;
+}
+
+
+function renderLanguageBreakdown(selection) {
+  const selectedCommits = selection
+    ? commits.filter((d) => isCommitSelected(selection, d))
+    : [];
+
+  const container = document.getElementById('language-breakdown');
+  container.innerHTML = '';
+
+  if (selectedCommits.length === 0) return;
+
+  const lines = selectedCommits.flatMap((d) => d.lines);
+
+  const breakdown = d3.rollup(
+    lines,
+    (v) => v.length,
+    (d) => d.type,
+  );
+
+
+
+  container.innerHTML = '';
+
+    for (const [language, count] of breakdown) {
+    const proportion = count / lines.length;
+    const formatted = d3.format('.1~%')(proportion);
+
+    container.innerHTML += `
+        <div class="lang-group">
+        <dt>${language}</dt>
+        <dd>${count} lines (${formatted})</dd>
+        </div>
+    `;
+    }
+  
+}
+
+
+
+function brushed(event) {
+  const selection = event.selection;
+  d3.selectAll('circle').classed('selected', (d) =>
+    isCommitSelected(selection, d)
+  );
+  renderSelectionCount(selection, commits);
+  renderLanguageBreakdown(selection);
+}
+
+
 
 function renderScatterPlot(data, commits) {
   const width = 1000;
@@ -131,13 +201,13 @@ function renderScatterPlot(data, commits) {
     .attr('viewBox', `0 0 ${width} ${height}`)
     .style('overflow', 'visible');
 
-  const xScale = d3
+  xScale = d3
     .scaleTime()
-    .domain(d3.extent(commits, (d) => d.datetime))
+    .domain(d3.extent(commits, d => d.datetime))
     .range([usableArea.left, usableArea.right])
     .nice();
 
-  const yScale = d3
+  yScale = d3
     .scaleLinear()
     .domain([0, 24])
     .range([usableArea.bottom, usableArea.top]);
@@ -149,18 +219,20 @@ function renderScatterPlot(data, commits) {
 
   const dots = svg.append('g').attr('class', 'dots');
 
-  const [minLines, maxLines] = d3.extent(commits, (d) => d.totalLines);
+  const [minLines, maxLines] = d3.extent(commits, d => d.totalLines);
   const rScale = d3.scaleSqrt().domain([minLines, maxLines]).range([2, 30]);
   const colorScale = d3.scaleSequential(d3.interpolateCool).domain([0, 24]);
+
   const sortedCommits = d3.sort(commits, d => -d.totalLines);
 
-  dots.selectAll('circle')
+  dots
+    .selectAll('circle')
     .data(sortedCommits)
     .join('circle')
-    .attr('cx', (d) => xScale(d.datetime))
-    .attr('cy', (d) => yScale(d.hourFrac))
-    .attr('r', (d) => rScale(d.totalLines))
-    .attr('fill', (d) => colorScale(d.hourFrac))
+    .attr('cx', d => xScale(d.datetime))
+    .attr('cy', d => yScale(d.hourFrac))
+    .attr('r', d => rScale(d.totalLines))
+    .attr('fill', d => colorScale(d.hourFrac))
     .style('fill-opacity', 0.7)
     .on('mouseenter', (event, commit) => {
       d3.select(event.currentTarget).style('fill-opacity', 1);
@@ -168,32 +240,26 @@ function renderScatterPlot(data, commits) {
       updateTooltipVisibility(true);
       updateTooltipPosition(event);
     })
-    .on('mousemove', (event) => {
-      updateTooltipPosition(event);
-    })
-    .on('mouseleave', (event) => {
+    .on('mousemove', event => updateTooltipPosition(event))
+    .on('mouseleave', event => {
       d3.select(event.currentTarget).style('fill-opacity', 0.7);
       updateTooltipVisibility(false);
     });
 
-  const xAxis = d3.axisBottom(xScale);
-  const yAxis = d3.axisLeft(yScale).tickFormat((d) => String(d % 24).padStart(2, '0') + ':00');
-
   svg.append('g')
     .attr('transform', `translate(0, ${usableArea.bottom})`)
-    .call(xAxis);
+    .call(d3.axisBottom(xScale));
 
   svg.append('g')
     .attr('transform', `translate(${usableArea.left}, 0)`)
-    .call(yAxis);
+    .call(d3.axisLeft(yScale).tickFormat(d => String(d % 24).padStart(2, '0') + ':00'));
 
-  // ✅ Step 5.1: Add brushing
-  svg.call(d3.brush());
+  // Add brush with event handler
+  svg.call(d3.brush().on('start brush end', brushed));
 
-  // ✅ Step 5.2: Raise dots so they’re above the brush overlay
+  // Fix tooltip disappearance by reordering DOM
   svg.selectAll('.dots, .overlay ~ *').raise();
 }
-
 
 let data = await loadData();
 let commits = processCommits(data);

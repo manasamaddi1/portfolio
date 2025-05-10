@@ -522,6 +522,11 @@ circle:hover {
   transform: scale(1.5);
 }
 
+circle.selected {
+  fill: #ff6b6b;
+}
+
+
 .dot {
   transition: 200ms;
   transform-origin: center;
@@ -609,6 +614,43 @@ dl.info[hidden]:not(:hover, :focus-within) {
   stroke-dasharray: 5 3;
   animation: marching-ants 2s linear infinite;
 }
+
+
+#language-breakdown {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+  background: #f9f9f9;
+  padding: 1.2rem 2rem;
+  border-radius: 12px;
+  font-family: sans-serif;
+}
+
+#language-breakdown .lang-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 120px;
+}
+
+#language-breakdown dt {
+  font-size: 1.05rem;
+  font-weight: bold;
+  color: purple;
+  margin-bottom: 0.2em;
+}
+
+#language-breakdown dd {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #000;
+}
+
+
+
 
 
 
