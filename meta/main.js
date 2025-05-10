@@ -1,6 +1,6 @@
 import * as d3 from 'https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm';
 
-let xScale, yScale; // Global so brush handlers can access
+let xScale, yScale; 
 
 async function loadData() {
   const data = await d3.csv('loc.csv', (row) => ({
@@ -254,10 +254,10 @@ function renderScatterPlot(data, commits) {
     .attr('transform', `translate(${usableArea.left}, 0)`)
     .call(d3.axisLeft(yScale).tickFormat(d => String(d % 24).padStart(2, '0') + ':00'));
 
-  // Add brush with event handler
+
   svg.call(d3.brush().on('start brush end', brushed));
 
-  // Fix tooltip disappearance by reordering DOM
+ 
   svg.selectAll('.dots, .overlay ~ *').raise();
 }
 
