@@ -1,14 +1,45 @@
-import { fetchJSON, renderProjects } from '../global.js';
+import { fetchJSON } from '../global.js';
 import * as d3 from 'https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm';
 
 let query = '';
-let selectedIndex = -1; 
+let selectedIndex = -1;
 
 const projects = await fetchJSON('../lib/projects.json');
 const projectsContainer = document.querySelector('.projects');
-renderProjects(projects, projectsContainer, 'h2');
 
 let colors = d3.scaleOrdinal(d3.schemeTableau10);
+
+// Renders all project cards
+function renderProjectsList(data) {
+  projectsContainer.innerHTML = '';
+  data.forEach(project => {
+    const card = document.createElement('div');
+    card.className = 'project-card';
+
+    const title = document.createElement('h2');
+    if (project.url) {
+      title.innerHTML = `<a href="${project.url}" target="_blank" rel="noopener noreferrer">${project.title}</a>`;
+    } else {
+      title.textContent = project.title;
+    }
+
+    const img = document.createElement('img');
+    img.src = project.image;
+    img.alt = project.title;
+
+    const year = document.createElement('p');
+    year.innerHTML = `<strong>Year:</strong> ${project.year || 'N/A'}`;
+
+    const desc = document.createElement('p');
+    desc.textContent = project.description;
+
+    card.appendChild(title);
+    card.appendChild(img);
+    card.appendChild(year);
+    card.appendChild(desc);
+    projectsContainer.appendChild(card);
+  });
+}
 
 function renderChart(data) {
   const sliceGenerator = d3.pie().value(d => d.value);
@@ -34,7 +65,6 @@ function renderChart(data) {
   svg.selectAll('path').style('cursor', 'pointer');
 }
 
-
 function renderLegend(data) {
   const legend = d3.select('.legend');
   legend.selectAll('li').remove();
@@ -52,7 +82,6 @@ function renderLegend(data) {
       });
   });
 }
-
 
 function filterBySelectionAndQuery(chartData, baseProjects = projects) {
   let filtered;
@@ -73,7 +102,7 @@ function filterBySelectionAndQuery(chartData, baseProjects = projects) {
     });
   }
 
-  renderProjects(filtered, projectsContainer, 'h2');
+  renderProjectsList(filtered);
 
   const titleElement = document.querySelector('.projects-title');
   if (titleElement) {
@@ -81,14 +110,11 @@ function filterBySelectionAndQuery(chartData, baseProjects = projects) {
   }
 }
 
-
+// Search + Chart Update
 const searchInput = document.querySelector('.searchBar');
-
-
 searchInput.addEventListener('input', (event) => {
   query = event.target.value.toLowerCase();
 
-  // First, filter projects just by query
   const searchFilteredProjects = projects.filter((project) => {
     let values = Object.values(project).join('\n').toLowerCase();
     return values.includes(query);
@@ -107,14 +133,10 @@ searchInput.addEventListener('input', (event) => {
 
   renderChart(data);
   renderLegend(data);
-  filterBySelectionAndQuery(data, searchFilteredProjects);  // 👈 pass it here too
+  filterBySelectionAndQuery(data, searchFilteredProjects);
 });
 
-
-
-
-
-
+// Initial render
 const rolled = d3.rollups(
   projects,
   v => v.length,
@@ -129,7 +151,6 @@ const initialData = rolled.map(([year, count]) => ({
 renderChart(initialData);
 renderLegend(initialData);
 filterBySelectionAndQuery(initialData);
-
 
 const titleElement = document.querySelector('.projects-title');
 if (titleElement) {
