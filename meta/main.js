@@ -4,6 +4,12 @@ let xScale, yScale;
 let commitProgress = 100;
 let commits, filteredCommits, data;
 
+let NUM_ITEMS;
+let ITEM_HEIGHT = 30;
+let VISIBLE_COUNT = 10;
+
+let scrollContainer, spacer, itemsContainer;
+
 async function loadData() {
   const data = await d3.csv('loc.csv', (row) => ({
     ...row,
@@ -83,6 +89,22 @@ function renderCommitInfo(data, commits) {
     statBox.append('div').attr('class', 'stat-label').text(stat.label);
     statBox.append('div').attr('class', 'stat-value').text(stat.value);
   });
+}
+
+
+function renderItems(startIndex) {
+  itemsContainer.selectAll('div').remove();
+  const endIndex = Math.min(startIndex + VISIBLE_COUNT, commits.length);
+  let newCommitSlice = commits.slice(startIndex, endIndex);
+  updateScatterPlot(data, newCommitSlice);
+  itemsContainer.selectAll('div')
+    .data(newCommitSlice)
+    .enter()
+    .append('div')
+    .text(d => `${d.date} — ${d.author}`)
+    .attr('class', 'item')
+    .style('position', 'absolute')
+    .style('top', (_, idx) => `${idx * ITEM_HEIGHT}px`);
 }
 
 function renderFilesList(filteredCommits) {
@@ -312,6 +334,7 @@ function updateDisplayedTime() {
 
 data = await loadData();
 commits = processCommits(data);
+
 
 let timeScale = d3.scaleTime(
   [d3.min(commits, (d) => d.datetime), d3.max(commits, (d) => d.datetime)],
