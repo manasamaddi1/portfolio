@@ -94,8 +94,16 @@ function renderFilesList(filteredCommits) {
   d3.select('.files').selectAll('div').remove();
   let filesContainer = d3.select('.files').selectAll('div').data(files).enter().append('div');
 
-  filesContainer.append('dt').append('code').text(d => d.name);
-  filesContainer.append('dd').text(d => `${d.lines.length} lines`);
+  filesContainer.append('dt')
+    .html(d => `<code>${d.name}</code><br><small>${d.lines.length} lines</small>`);
+
+  const dd = filesContainer.append('dd');
+
+  dd.selectAll('div')
+    .data(d => d.lines)
+    .enter()
+    .append('div')
+    .attr('class', 'line');
 }
 
 function renderTooltipContent(commit) {
