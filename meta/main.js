@@ -91,20 +91,35 @@ function renderFilesList(filteredCommits) {
     .groups(lines, (d) => d.file)
     .map(([name, lines]) => ({ name, lines }));
 
-  d3.select('.files').selectAll('div').remove();
-  let filesContainer = d3.select('.files').selectAll('div').data(files).enter().append('div');
+  // Sort files by descending line count
+  files = d3.sort(files, (d) => -d.lines.length);
 
+  // Color by type (CSS, HTML, JS, etc.)
+  let fileTypeColors = d3.scaleOrdinal(d3.schemeTableau10);
+
+  // Clear previous display
+  d3.select('.files').selectAll('div').remove();
+
+  let filesContainer = d3.select('.files')
+    .selectAll('div')
+    .data(files)
+    .enter()
+    .append('div');
+
+  // Add file name + line count
   filesContainer.append('dt')
     .html(d => `<code>${d.name}</code><br><small>${d.lines.length} lines</small>`);
 
+  // Unit dots per line
   const dd = filesContainer.append('dd');
-
   dd.selectAll('div')
     .data(d => d.lines)
     .enter()
     .append('div')
-    .attr('class', 'line');
+    .attr('class', 'line')
+    .style('background', d => fileTypeColors(d.type));
 }
+
 
 function renderTooltipContent(commit) {
   const link = document.getElementById('commit-link');
