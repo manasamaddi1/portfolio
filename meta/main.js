@@ -369,9 +369,11 @@ d3.select('#scatter-story')
 
   
   function onStepEnter(response) {
-  const commit = response.element.__data__;
-  updateScatterPlot(data, [commit]); // update with just this commit for effect
+  const stepIndex = response.index;
+  const visibleCommits = commits.slice(0, stepIndex + 1);
+  updateScatterPlot(data, visibleCommits);
 }
+
 
 const scroller = scrollama();
 scroller
